@@ -1,0 +1,21 @@
+<h3>Product List</h3>
+<table border="1">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Photo</th>
+        <th>Buy</th>
+    </tr>
+    <tr *ngFor="let vaccine of vaccines">
+        <td>{{vaccine.id}}</td>
+        <td>{{vaccine.name}}</td>
+        <td>{{vaccine.price}}</td>
+        <td>
+            <img src="" width="50">
+        </td>
+        <td>
+            <a [routerLink]="['/cart', { id:vaccine.id }]">Buy Now</a>
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,51 @@
+<h3>Add Vaccine</h3>
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4" >
+    <div [hidden]="submitted" style="width: 400px;">
+      <form [formGroup]="vaccinesaveform" #savevaccine (ngSubmit)="saveVaccine(savevaccine)">
+          <div class="form-group">
+              <label for="name">Vaccine Name</label>
+              <input type="text" class="form-control"  formControlName="name" data-toggle="tooltip" 
+                 data-placement="right" title="Enter Vaccine Name" >
+          </div>
+  
+          <div class="form-group">
+              <label for="name">Vaccine Description</label>
+              <input type="text" class="form-control" formControlName="description" 
+                data-toggle="tooltip" data-placement="right" title="Enter Vaccine Description">
+          </div>
+  
+          <div class="form-group">
+              <label for="branch">Vaccine price</label>
+              <input type="text" class="form-control" formControlName="price" 
+                data-toggle="tooltip" data-placement="right" title="Enter Vaccine Price">
+          </div>
+          <div class="form-group">
+            <label for="branch">Vaccine Image URL</label>
+            <input class="form-control" formControlName="image_URL" 
+              data-toggle="tooltip" data-placement="right" title="Enter Vaccine Image URL">
+          </div>
+          <div class="form-group">
+            <label for="branch">Vaccine Category</label>
+            <input class="form-control" formControlName="category" 
+              data-toggle="tooltip" data-placement="right" title="Enter Vaccine Category">
+          </div>
+          <button type="submit" class="btn btn-success">Add</button>
+      </form>
+  </div>
+  </div>
+  <div class="col-sm-4"></div>
+</div>
+<div class="row">
+  <div class="col-sm-4"></div>
+  <div class="col-sm-4">
+      <div [hidden]="!submitted">
+         <h4>Vaccine Added SuccessFully!</h4>
+         <button (click)="addVaccineForm()" class='btn btn-primary'>Add More Vaccines</button>
+      </div>      
+  </div>
+  <div class="col-sm-4"></div>
+</div>
+
+

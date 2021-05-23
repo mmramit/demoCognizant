@@ -1,0 +1,10 @@
+{
+    "files.exclude": {
+        "node_modules/": true
+    },
+    "workbench.colorTheme": "Default Light+",
+    "workbench.editor.showTabs":true,
+    "workbench.colorCustomizations": {
+    
+    }
+}
