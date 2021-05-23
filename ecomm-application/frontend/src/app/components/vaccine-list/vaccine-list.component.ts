@@ -3,6 +3,7 @@ import { VaccineService } from '../../services/vaccine.service';
 import { Vaccine } from '../../models/vaccine';
 import { Producer } from '../../models/producer';
 import { Observable,Subject } from "rxjs";
+import { filter } from 'rxjs/operators';
 
 import {FormControl,FormGroup,Validators} from '@angular/forms';
 
@@ -42,11 +43,15 @@ export class VaccineListComponent implements OnInit {
     })
   }
   
+display(){
+  this.vaccineservice.getVaccineList().subscribe(data =>{
+    this.vaccines =data;
+})}
+
   deleteVaccine(id: string) {
     this.vaccineservice.deleteVaccine(id)
       .subscribe(
         data => {
-          console.log(data);
           this.deleteMessage=true;
           this.vaccineservice.getVaccineList().subscribe(data =>{
             this.vaccines =data
@@ -57,9 +62,13 @@ export class VaccineListComponent implements OnInit {
 
   showVaccines(vaccine: Vaccine){
     this.updVaccine = vaccine;
-    console.log(this.isupdated);
+
   }
 
+
+  show(vacc:String){
+    
+  }
 
   vaccineupdateform=new FormGroup({
     id:new FormControl(),

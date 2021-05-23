@@ -32,9 +32,10 @@ public class DbSeeder implements CommandLineRunner{
         producerRepo.save(producer2);
         producerRepo.save(producer3);
 
-        Vaccine vaccine1 = new Vaccine("pFizer", "Pfizer Inc. is an American multinational pharmaceutical.",15,"/image/one", producer1);
-        Vaccine vaccine2 = new Vaccine("Moderna", "Moderna Inc. is an American multinational pharmaceutical ",50,"/image/two", producer2);
-        Vaccine vaccine3 = new Vaccine("Astrazenca", "Astrazenca amazing",7,"/image/three", producer3);
+        Vaccine vaccine1 = new Vaccine("pFizer", "Pfizer Inc. is an American multinational pharmaceutical.",15,"a-1", producer1);
+        Vaccine vaccine2 = new Vaccine("Moderna", "Moderna Inc. is an American multinational pharmaceutical ",50,"a-2", producer2);
+        Vaccine vaccine3 = new Vaccine("Astrazenca", "Astrazenca amazing",7,"a-3", producer3);
+
         vaccineRepo.save(vaccine1);
         vaccineRepo.save(vaccine2);
         vaccineRepo.save(vaccine3);

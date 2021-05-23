@@ -1,6 +1,7 @@
 com/store/ecommerce/repositories/VaccineRepository.class
 com/store/ecommerce/controllers/VaccineService.class
 com/store/ecommerce/controllers/ProducerService.class
+com/store/ecommerce/controllers/ProductService.class
 com/store/ecommerce/EcommerceApplication.class
 com/store/ecommerce/beans/Address.class
 com/store/ecommerce/beans/Vaccine.class

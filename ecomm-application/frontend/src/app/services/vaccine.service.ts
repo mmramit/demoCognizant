@@ -27,7 +27,7 @@ export class VaccineService {
   }
 
 
-  getVaccine(id: string): Observable<Vaccine> {
+  getVaccine(id: String): Observable<Vaccine> {
     return this.http.get<Vaccine>(`${this.baseUrl}${id}`);
   }
 

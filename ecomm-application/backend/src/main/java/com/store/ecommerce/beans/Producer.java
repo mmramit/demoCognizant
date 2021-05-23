@@ -17,7 +17,7 @@ public class Producer {
 	}
 
 	private String name;
-    //private Address address;
+    private Address address;
 
 	public String getId() {
 		return id;
@@ -35,22 +35,22 @@ public class Producer {
 		this.name = name;
 	}
 
-//	//public Address getAddress() {
-//		return address;
-//	}
+	public Address getAddress() {
+		return address;
+	}
 
-//	//public void setAddress(Address address) {
-//		this.address = address;
-//	}
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 
-//	@Override
-//	public String toString() {
-//		return "Producer{" +
-//				"id='" + id + '\'' +
-//				", name='" + name + '\'' +
-//				", address=" + address +
-//				'}';
-//	}
+	@Override
+	public String toString() {
+		return "Producer{" +
+				"id='" + id + '\'' +
+				", name='" + name + '\'' +
+				", address=" + address +
+				'}';
+	}
 
 
 }

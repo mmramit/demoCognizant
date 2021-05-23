@@ -43,6 +43,13 @@ public class VaccineService {
         return vaccine;
     }
 
+
+    @GetMapping(path = "vaccines-list/{name}")
+    public Vaccine getFilteredList(@PathVariable("name") String name){
+        Vaccine vaccine = vaccineRepository.findByName(name);
+        return vaccine;
+    }
+
     @PostMapping("update-vaccine/{vaccine_id}")
     public void updateProducer(@RequestBody Vaccine vaccine, @PathVariable("vaccine_id") String vaccine_id) {
         vaccine.setId(vaccine_id);
