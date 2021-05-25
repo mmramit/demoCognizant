@@ -25,9 +25,9 @@ public class DbSeeder implements CommandLineRunner{
 
         vaccineRepo.deleteAll();
         
-        Producer producer1 = new Producer("pFizer");
-        Producer producer2 = new Producer("Moderna");
-        Producer producer3 = new Producer("Astrazenca");
+        Producer producer1 = new Producer("1", "pFizer");
+        Producer producer2 = new Producer("2", "Moderna");
+        Producer producer3 = new Producer("3", "Astrazenca");
         producerRepo.save(producer1);
         producerRepo.save(producer2);
         producerRepo.save(producer3);

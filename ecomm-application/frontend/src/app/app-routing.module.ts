@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'vaccines', component: VaccineComponent },
   { path: 'product-item', component: ProductComponent },
-  { path: '', redirectTo: 'landing-page', pathMatch: 'full' },
+  { path: '', redirectTo: 'view-vaccines', pathMatch: 'full' },
 ];
 
 

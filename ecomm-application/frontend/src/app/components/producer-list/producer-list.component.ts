@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ProducerService } from '../../services/producer.service';
 import { Producer } from '../../models/producer';
 import { Observable,Subject } from "rxjs";
-
 import {FormControl,FormGroup,Validators} from '@angular/forms';
+
 
 @Component({
   selector: 'app-producer-list',
@@ -62,20 +62,18 @@ export class ProducerListComponent implements OnInit {
 
   producerupdateform=new FormGroup({
     id:new FormControl(),
-    accountId:new FormControl(),
     name:new FormControl(),
   });
 
-  updateProducer(updpro){
+  updateProducer(producerupdateform){
    this.producer=new Producer(); 
    this.producer.id=this.ProducerId.value;
-   this.producer.accountId=this.ProducerAccountId.value;
    this.producer.name=this.ProducerName.value;
   
    console.log(this.ProducerId.value);
 
 
-   this.producerervice.updateProducer(this.producer.id,this.producer).subscribe(
+   this.producerervice.updateProducer(this.producer.id,this.producer.name).subscribe(
     data => {     
       this.isupdated=true;
       this.producerervice.getProducerList().subscribe(data =>{
@@ -98,5 +96,24 @@ export class ProducerListComponent implements OnInit {
 
   changeisUpdate(){
     this.isupdated=false;
+    console.log()
   }
+
+updateProducers(id:String, name:String){
+  this.producerervice.updateProducer(id,name).subscribe(
+    data => {     
+      this.isupdated=true;
+      this.producerervice.getProducerList().subscribe(data =>{
+        this.producers =data
+        })
+    },
+    error => console.log(error));
+  }
+
+  onClickSubmit(data) {
+    this.isupdated=true;
+    console.log(data.id, data.name);
+    this.updateProducers(data.id, data.name);
+  
+ }
 }

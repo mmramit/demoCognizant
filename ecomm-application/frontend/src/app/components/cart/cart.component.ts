@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Item } from '../../models/item';
 import { VaccineService } from '../../services/vaccine.service';
 import { Vaccine } from '../../models/vaccine';
-import {VaccineComponent} from '../vaccine/vaccine.component'
 import { ActivatedRoute } from '@angular/router';
+import { CartService } from '../../services/cart.service';
+
 
 
 @Component({
@@ -19,7 +20,8 @@ export class CartComponent implements OnInit {
 
 	constructor(
 		private activatedRoute: ActivatedRoute,
-		private productService: VaccineService
+		private productService: VaccineService,
+		private cartService: CartService
 	) { }
 
 	ngOnInit() {
@@ -100,9 +102,57 @@ export class CartComponent implements OnInit {
 		this.loadCart();
 	}
 
-	get cartValue() {
-        return this.total;
-    }
+	raise(id:String){
+		this.productService.getVaccine(id).subscribe(res => {
+				this.pVaccine = res;
+				var im= new Item();
+				console.log(res);
+						let cart: any = JSON.parse(localStorage.getItem('cart'));
+						var index: number = -1;
+						for (var i = 0; i < cart.length; i++) {
+							let item: Item = JSON.parse(cart[i]);
+							if (item.product.id == id) {
+								index = i;
+								break;
+							}
+						}
+							let item: Item = JSON.parse(cart[index]);
+							item.quantity += 1;
+							cart[index] = JSON.stringify(item);
+							localStorage.setItem("cart", JSON.stringify(cart));
 
+							
+					
+			});
+	 return false;
+	
+	  }
 
+	  minus(id:String){
+		this.productService.getVaccine(id).subscribe(res => {
+				this.pVaccine = res;
+				var im= new Item();
+				console.log(res);
+						let cart: any = JSON.parse(localStorage.getItem('cart'));
+						var index: number = -1;
+						for (var i = 0; i < cart.length; i++) {
+							let item: Item = JSON.parse(cart[i]);
+							if (item.product.id == id) {
+								index = i;
+								break;
+							}
+						}
+							let item: Item = JSON.parse(cart[index]);
+							item.quantity -= 1;
+							cart[index] = JSON.stringify(item);
+							localStorage.setItem("cart", JSON.stringify(cart));
+
+							
+					
+			});
+	 return false;
+	
+	  }
+
+	
 }

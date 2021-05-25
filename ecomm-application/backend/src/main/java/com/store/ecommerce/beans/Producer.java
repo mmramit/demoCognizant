@@ -11,13 +11,14 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Producer {
     @Id
     private String id;
+	private String name;
 
-	public Producer(String name) {
+	public Producer(String id, String name) {
+		this.id= id;
 		this.name = name;
 	}
 
-	private String name;
-    private Address address;
+
 
 	public String getId() {
 		return id;
@@ -35,20 +36,11 @@ public class Producer {
 		this.name = name;
 	}
 
-	public Address getAddress() {
-		return address;
-	}
-
-	public void setAddress(Address address) {
-		this.address = address;
-	}
-
 	@Override
 	public String toString() {
 		return "Producer{" +
 				"id='" + id + '\'' +
 				", name='" + name + '\'' +
-				", address=" + address +
 				'}';
 	}
 

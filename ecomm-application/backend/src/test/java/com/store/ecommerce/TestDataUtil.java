@@ -3,7 +3,7 @@ package com.store.ecommerce;
 import com.store.ecommerce.beans.Address;
 import com.store.ecommerce.beans.Producer;
 import com.store.ecommerce.beans.Vaccine;
-import org.junit.jupiter.api.BeforeAll;
+
 
 public class TestDataUtil {
 
@@ -20,10 +20,9 @@ public class TestDataUtil {
     }
 
     public static Producer getProducer() {
-        Producer testProducer = new Producer("Moderna");
+        Producer testProducer = new Producer("5", "Moderna");
         testProducer.setId("101");
         testProducer.setName("Oxford");
-        testProducer.setAddress(getAddress());
         return testProducer;
 
     }

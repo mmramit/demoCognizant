@@ -12,6 +12,7 @@ export class CartService {
 
   private total: number = 0;
   private items: Item[] = [];
+
   loadCart(): number {
     this.items = [];
 		let cart = JSON.parse(localStorage.getItem('cart'));
@@ -20,6 +21,7 @@ export class CartService {
 			this.total += item.quantity;
 		}
     return this.total;
-}       
+}
+
 
 }

@@ -30,8 +30,10 @@ export class ProducerService {
     return this.http.get(`${this.baseUrl}${id}`);
   }
 
-  updateProducer(id: string, value: any): Observable<Object> {
-    return this.http.post(`${this.baseUrl}update-producer/${id}`, value);
+  updateProducer(id: String, name: String): Observable<Object> {
+    console.log(`${this.baseUrl}update-producer?id=${id}&name=${name}`);
+    return this.http.post(`${this.baseUrl}update-producer?id=${id}&name=${name}`, name);
   }
   
-}                                           
+}
+                                    

@@ -1,7 +1,6 @@
 export class Producer{
-    id: string;
-    accountId: string;
-    name: string;
+    id: String;
+    name: String;
     constructor(){
         
     }

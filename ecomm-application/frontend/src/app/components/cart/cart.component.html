@@ -1,77 +1,74 @@
-
- <div class="container">
+<div class="container">
   <div class="heading">
-    <h1> <span class="shopper">s</span> Shopping Cart
+    <h1> <span class="shopper">s</span>hopping Cart
     </h1>
-    
-    <a href="#" class="visibility-cart transition is-open">X</a>    
+
+    <a href="#" class="visibility-cart transition is-open">X</a>
   </div>
-  
+
   <div class="cart transition is-open">
-    
-    <a href="#" class="btn btn-update">Update cart</a>
-    
-    
+
+    <a href="/view-vaccines" class="btn btn-update">Continue Shopping</a>
+
+
     <div class="table">
-      
+
       <div class="layout-inline row th">
         <div class="col col-pro">Option</div>
-        <div class="col col-price align-center "> 
-            Name
+        <div class="col col-price align-center ">
+          Name
         </div>
-        <div class="col col-qty align-center">GST/QST</div>
+        <div class="col col-qty align-center">Quantity</div>
         <div class="col">Price</div>
         <div class="col">Total</div>
       </div>
-      
+
       <div class="layout-inline row" *ngFor="let item of items">
-        
+
         <div class="col col-pro layout-inline">
-            <a (click)="remove(item.product.id)">X</a>
+          <a (click)="remove(item.product.id)" class="close">X</a>
         </div>
-        
+
         <div class="col col-price col-numeric align-center ">
           <p>{{item.product.name}}</p>
         </div>
 
         <div class="col col-qty layout-inline">
-          <a href="#" class="qty qty-minus">-</a>
-          <input type="numeric" value="3" ng-model="item.quantity"/>
-         
-          <a href="#" class="qty qty-plus">+</a>
+          <a href="#" class="qty qty-minus" (click)="minus(item.product.id)">-</a>
+          <input type="numeric" value="3" [(ngModel)]="item.quantity" />
+
+          <a href="#" class="qty qty-plus" (click)="raise(item.product.id)">+</a>
         </div>
-        
+
         <div class="col col-vat col-numeric">
-        <div class="col">{{item.product.price}}</div>
+          <div class="col">{{item.product.price}}</div>
         </div>
-        <div class="col col-total col-numeric"> 
-             <p> {{item.product.price * item.quantity}}</p>
+        <div class="col col-total col-numeric">
+          <p> {{item.product.price * item.quantity}}</p>
         </div>
       </div>
-       <div class="tf">
-         <div class="row layout-inline">
-           <div class="col">
-             <p>GST:15% </p>
-           </div>
-           <div class="col"></div>
-         </div>
-         <div class="row layout-inline">
-           <div class="col">
-             <p>Shipping</p>
-           </div>
-           <div class="col"></div>
-         </div>
-          <div class="row layout-inline">
-           <div class="col">
-             <p>Total: {{total}}</p>
-           </div>
-           <div class="col"></div>
-         </div>
-       </div>         
-  </div>
-    
-    <a href="#" class="btn btn-update">Update cart</a>
-  
-</div>
-  
+      <div class="tf">
+        <div class="row layout-inline">
+          <div class="col">
+            <p>GST:15% </p>
+          </div>
+          <div class="col"></div>
+        </div>
+        <div class="row layout-inline">
+          <div class="col">
+            <p>Shipping</p>
+          </div>
+          <div class="col"></div>
+        </div>
+        <div class="row layout-inline">
+          <div class="col">
+            <p>Total Price: {{total}}</p>
+          </div>
+          <div class="col"></div>
+        </div>
+      </div>
+    </div>
 
+    <a href="#" class="btn btn-update">Update cart</a>
+
+  </div>
