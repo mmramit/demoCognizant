@@ -15,6 +15,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { VaccineComponent } from './components/vaccine/vaccine.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ProductComponent } from './components/product/product.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ProductComponent } from './components/product/product.component';
     VaccineComponent,
     CartComponent,
     ProductComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

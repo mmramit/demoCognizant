@@ -12,7 +12,7 @@ import com.store.ecommerce.repositories.VaccineRepository;
 import com.store.ecommerce.repositories.ProducerRepository;
 
 @Component
-public class DbSeeder implements CommandLineRunner{
+public class LoadData implements CommandLineRunner{
     @Autowired
     private VaccineRepository vaccineRepo;
     @Autowired
