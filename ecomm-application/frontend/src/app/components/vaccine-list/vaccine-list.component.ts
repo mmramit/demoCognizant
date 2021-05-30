@@ -4,6 +4,7 @@ import { Vaccine } from '../../models/vaccine';
 import { Producer } from '../../models/producer';
 import { Observable,Subject } from "rxjs";
 
+
 import {FormControl,FormGroup,Validators} from '@angular/forms';
 
 @Component({
@@ -15,11 +16,8 @@ export class VaccineListComponent implements OnInit {
 
  constructor(private vaccineservice:VaccineService) { }
 
-  dtOptions: DataTables.Settings = {};
-  dtTrigger: Subject<any>= new Subject();
-
-
-  vaccines: Observable<Vaccine[]>;
+  vaccines: Vaccine[];
+  vaccineList: Vaccine[];
   vaccine : Vaccine=new Vaccine();
   producer:Producer = new Producer();
   updVaccine: Vaccine=new Vaccine();
@@ -30,15 +28,9 @@ export class VaccineListComponent implements OnInit {
 
   ngOnInit() {
     this.isupdated=false;
-    this.dtOptions = {
-      pageLength: 6,
-      stateSave:true,
-      lengthMenu:[[6, 16, 20, -1], [6, 16, 20, "All"]],
-      processing: true
-    };   
     this.vaccineservice.getVaccineList().subscribe(data =>{
     this.vaccines =data;
-    this.dtTrigger.next();
+
     })
   }
   
@@ -66,7 +58,8 @@ display(){
 
 
   show(vacc:String){
-    
+    this.vaccineslist = this.vaccines.filter(x => x.name == vacc);
+    this.vaccines =this.vaccineslist;
   }
 
   vaccineupdateform=new FormGroup({
@@ -87,8 +80,7 @@ display(){
    this.vaccine.price=this.VaccinePrice.value;
    this.vaccine.image_URL=this.VaccineImage_URL.value;
    this.vaccine.producer=this.VaccineProducer.value;
-   console.log(this.VaccineId.value);
-   
+ 
 
    this.vaccineservice.updateVaccine(this.vaccine.id,this.vaccine).subscribe(
     data => {     
